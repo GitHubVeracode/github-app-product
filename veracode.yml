@@ -5,16 +5,16 @@ veracode_sast_pipeline_scan:
   push:
     trigger: true
     branches_to_run:
-      - default_branch
+      - *
     branches_to_exclude:
-      - default_branch
+      - develop
   pull_request:
     trigger: false
     action:
       - opened
       - synchronize
     target_branch:
-      - default_branch 
+      - develop 
   #If the break_build_policy_findings is set to true, the build will break if the pipeline scan finds any policy violations.      
   break_build_policy_findings: true
   #If the break_build_on_error is set to true, the build will break if the scan failed to complete in time or with an error.
